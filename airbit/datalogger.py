@@ -20,8 +20,10 @@ class DataLogger(object):
             with open(self.SD_LOG_FILE_PATH, "w") as fp:
                 fp.write("Date(DD.MM.YYYY),Time(HH:MM:SS),Lat,Lon,Temperature(°C),Humidity(%),PM25,PM100\n")
                 fp.flush()
+                print(f"Created log file {self.LOG_FILE_NAME}")
 
-        print(f"Created log file {self.SD_LOG_FILE_PATH}")
+        else:
+            print(f"Found log file {self.LOG_FILE_NAME}")
 
     def log(self, data: dict) -> None:
         """Checks if an SD card is present and calls the log_sd method.
